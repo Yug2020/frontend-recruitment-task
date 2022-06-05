@@ -9,15 +9,55 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 var replace = require('gulp-replace');
 
+// My
+// server
+const browserSync = require('browser-sync').create();
+
+// pug
+const pug = require('gulp-pug')
+const beautify = require('gulp-jsbeautifier');
+
+// Server
+function server() {
+    browserSync.init({
+		//+open: true,
+		//server: path.dist.distPath
+		server: {
+			baseDir:"./dist/"
+		},
+		port:5000,
+		notify: false, // Отключаем уведомления
+	});
+}
+
+
+function pugTask(){
+	return src(files.pugPath)
+    .pipe(
+		pug({
+			//pretty: true
+			//pretty: '\t'
+			pretty: ''
+		})
+	)
+    //.pipe(prettify({indent_char: ' ', indent_size: 2}))
+    .pipe(beautify())
+    .pipe(dest('dist'))
+	.pipe(browserSync.stream())
+}
+
+
 // File paths
 const files = { 
-    //scssPath: 'src/scss/**/*.scss',
-    scssPath: 'src/sass/**/*.sass',
-    jsPath: 'src/js/**/*.js'
+    scssPath: 'src/scss/**/*.scss',
+    sassPath: 'src/sass/**/*.sass',
+    jsPath: 'src/js/**/*.js',
+    pugPath: 'index.pug'
 };
 
 function scssTask(){    
-    return src(files.scssPath)
+   // return src(files.scssPath)
+    return src(files.sassPath)
         .pipe(sourcemaps.init()) // initialize sourcemaps first
         .pipe(sass([])) // compile SCSS to CSS
         .pipe(postcss([ autoprefixer(), cssnano() ])) // PostCSS plugins
@@ -30,12 +70,26 @@ function jsTask(){
     return src([
         files.jsPath
         ])
-        .pipe(concat('all.js'))
+        //.pipe(concat('all.js'))
+        .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(dest('dist')
     );
 }
 
+
+function watchTask(){
+    watch([files.pugPath, files.sassPath, files.jsPath], 
+        parallel(pugTask, scssTask, jsTask));    
+}
+
+exports.default = series(
+    parallel(pugTask, scssTask, jsTask),
+	parallel(watchTask, server)    
+);
+
+
+/*
 var cbString = new Date().getTime();
 function cacheBustTask(){
     return src(['index.html'])
@@ -43,6 +97,10 @@ function cacheBustTask(){
         .pipe(dest('.'));
 }
 
+
+
+
+/*
 function watchTask(){
     watch([files.scssPath, files.jsPath], 
         parallel(scssTask, jsTask));    
@@ -53,3 +111,4 @@ exports.default = series(
     cacheBustTask,
     watchTask
 );
+*/
