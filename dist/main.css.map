@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.sass","main.css"],"names":[],"mappings":"AAAA,GACC,YCCD,CDEC,aACC,SCCF","file":"main.css","sourcesContent":[".d\r\n\tdisplay: none\r\n\t\r\n.root\r\n\t.child\r\n\t\tcolor: red",".d {\n  display: none;\n}\n\n.root .child {\n  color: red;\n}"]}
