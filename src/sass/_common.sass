@@ -28,3 +28,27 @@ body,html
 	right: 0
 	bottom: 0
 	display: flex
+
+// components
+// common component
+.title
+	color: $dark1
+	font-size:42px
+	font-weight: 700
+	/*text-align: center/**/
+
+.btn
+	background: transparent 
+	cursor: pointer
+	outline: 0px solid #ff0000 /* Параметры рамки */
+	transition: all 0.15s ease-in-out
+	&:hover
+		color: red
+	&:focus
+		outline: 3px solid #ff0000 /* Параметры рамки */
+		transition: all 0.15s ease-in-out
+		
+	
+	&--brd0
+		border: 1px solid #000
+		border-radius: 3px
