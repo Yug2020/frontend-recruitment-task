@@ -19,8 +19,19 @@ body,html
 	max-width: $max-width-container
 	margin: auto
 
+.wrap-block
+	display: block
+	
+.wrap-inline
+	display: inline
+
+.row
+	display: flex
+.column
+	flex:1 0 auto
+	display: flex
+	flex-direction: column
 .popup
-	/*display: none /**/
 	background-color: $dark1opacity50
 	position: absolute
 	top: 0
@@ -29,6 +40,8 @@ body,html
 	bottom: 0
 	display: flex
 
+	&[data-visible=false]
+		display: none
 // components
 // common component
 .title
@@ -40,15 +53,17 @@ body,html
 .btn
 	background: transparent 
 	cursor: pointer
-	outline: 0px solid #ff0000 /* Параметры рамки */
-	transition: all 0.15s ease-in-out
+	outline: 0px solid $onFocus /* Параметры рамки */
+	transition: all 0.45s ease-in-out
 	&:hover
 		color: red
+		outline: 3px solid $onFocus /* Параметры рамки */
+		//transition: all 0.15s ease-in-out
 	&:focus
-		outline: 3px solid #ff0000 /* Параметры рамки */
+		outline: 3px solid $onFocus /* Параметры рамки */
 		transition: all 0.15s ease-in-out
 		
 	
 	&--brd0
-		border: 1px solid #000
+		border: 0px solid #000
 		border-radius: 3px
