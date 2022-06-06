@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"main.css","sourcesContent":[]}
+{"version":3,"sources":["main.sass"],"names":[],"mappings":"AAAQ,6FAAA","file":"main.css","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Alegreya + Sans + SC:wght@400;500;800')"]}
