@@ -1,1 +1,1 @@
-{"version":3,"sources":["main.sass","main.css"],"names":[],"mappings":"AAAA,OACC,UAAA,CACA,iBCCD","file":"main.css","sourcesContent":[".title\r\n\tcolor: blue\r\n\ttext-align: center",".title {\n  color: blue;\n  text-align: center;\n}"]}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"main.css","sourcesContent":[]}

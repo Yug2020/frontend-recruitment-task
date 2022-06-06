@@ -6,6 +6,23 @@ html(lang="en")
 		meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
 		title Yurii Holub - Recruitment task
 		link(rel="stylesheet", href="/main.css")
+		//link(rel="stylesheet", href="/debug.css")
 		script(src="main.js")
 	body
-		h1.title TEST
+		main.main
+			article.popup
+				.alert
+					button.alert__btn-close.btn.btn--brd0
+						| X
+					h3.alert__title.title Alert!
+					p.alert__mess
+						| You have clicked 
+						b
+							span.v-count X 
+							| times
+						| to related button.
+					.alert__wrap-btn-reset
+						button.alert__btn-reset.btn.btn--border0
+							| reset
+			.container
+				article.news
