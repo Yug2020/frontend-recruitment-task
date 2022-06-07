@@ -10,9 +10,9 @@ html(lang="en")
 		script(src="main.js")
 	body
 		main.main
-			article.popup(data-visible="false")
+			article.popup(data-visible="false" onclick="popup.close(event)")
 				.alert(role="alert" aria-live="assertive")
-					button.alert__btn-close.btn.btn--brd0
+					button.alert__btn-close.btn.btn--brd0(onclick="popup.close(event)")
 						| X
 					h3.alert__title.title Alert!
 					p.alert__mess
@@ -22,7 +22,7 @@ html(lang="en")
 							|  times 
 						| to related button.
 						span.alert__wrap-btn-reset.wrap-inline
-							button.alert__btn-reset.btn.btn--brd0
+							button.alert__btn-reset.btn(data-visible="false" onclick="popup.resetCount()")
 								| reset
 			.container
 				article.news.row
@@ -32,6 +32,6 @@ html(lang="en")
 						h2.news__title.title Lorem Ipsum
 						p.news__text.text Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.
 						.news__wrap-btn.wrap-block
-							button.news__btn-add-count.btn Button
+							button.news__btn-add-count.btn(onclick="onClick('id2')") Button
 
 
