@@ -72,7 +72,7 @@ function jsTask(){
         ])
         //.pipe(concat('all.js'))
         .pipe(concat('main.js'))
-        .pipe(uglify())
+       // .pipe(uglify())
         .pipe(dest('dist')
     );
 }

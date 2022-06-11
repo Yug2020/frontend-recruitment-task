@@ -4,31 +4,101 @@ const RENDER_ROOT_POPUP = '.popup'
 const RENDER_COUNT_POPUP = '.v-count'
 const RENDER_BTN_RESET_POPUP = '.alert__btn-reset'
 
+const MAX_COUNT = 5
 
+
+function init() {
+    // проверить localStorage
+
+    // init PopUp
+    // set render NODE DOM
+    popup.init({
+        rootClassName: RENDER_ROOT_POPUP,
+        countClassName: RENDER_COUNT_POPUP
+    })
+    // загрузить данные в state
+    window.counts = []
+    // example for 3 button (inc)
+    counts.push(count("id1"))
+    counts.push(count("id2"))
+    counts.push(count("id3"))
+}
+
+
+const onClick = (id) => {
+    // find item element arr of counts
+    const item = window.counts.find(element => {
+
+        if (element().getName() === id) { return element }
+    })
+
+    // console.log(typeof item)
+    //console.log(!!item)
+    console.log(item)
+    if (!!item) {
+        console.log('item=true')
+        // getNextCount
+        let N = item().inc()
+        // getAPI
+        const popupAPI = popup.property(item()) // get Property Item <Obj>
+        // (check n>5) btnReset=visible
+        if (N > MAX_COUNT) popupAPI.showResetBtn()
+        // show popup
+        popup.open()
+        // show count
+        popup.renderCount(popup.getValue())
+    }
+
+
+
+
+    // if count>5 show btn-reset
+
+}
+
+// Object count
 function count(_name) {
-    // init
+    // constructor()
+
     let i = 0
     let name = _name
+    // private
     const saveToBD = val => localStorage.setItem(name, val)
+    const loadFromBD = () => +localStorage.getItem(name) // <int>
+    const setItemBD = i => { saveToBD(i); return loadFromBD() }
+    const getItemBD = () => { return +localStorage.getItem(name) }
+
+    // init
     // check localstorage
-    let ls_i = +localStorage.getItem(name)// + strToInt
+    let bd_i = getItemBD()// + strToInt
     // if the value in localstorage exists then apply it
-    if (ls_i !== null && Number.isInteger(ls_i)) { i = ls_i }
+    //if (ls_i !== null && Number.isInteger(ls_i)) { i = ls_i }
+    if (bd_i !== null && Number.isInteger(bd_i)) { i = bd_i }
     // main
     return function () {
-        // return object with api
+        // return API object
+        // public
         return {
-            inc: () => { ++i; saveToBD(i); return i },
-            getValue: () => i,
-            reset: () => { i = 0; saveToBD(i); return i },
-            setValue: (val) => { i = val; saveToBD(i); return i },
-            name: () => name,
-            saveToBD: val => localStorage.setItem(name, val)
+
+            //inc: () => { ++i; saveToBD(i); return i },
+            //inc: () => { ++i; saveToBD(i); return loadFromBD() },
+            inc: () => { ++i; return setItemBD(i) },
+            //getValue: () => i,
+            getValue: () => loadFromBD(),
+            //reset: () => { i = 0; saveToBD(i); return i },
+            reset: () => { i = 0; saveToBD(i); return loadFromBD() },
+            //setValue: (val) => { i = val; saveToBD(i); return i },
+            //setValue: (val) => { i = val; saveToBD(i); return loadFromBD() },
+            setValue: (val) => { i = val; return setItemBD(i) },
+            getName: () => name
         }
     }
 }
 
 // object model POPUP
+// popup.close()
+// popup.reset()
+// singelton
 const popup = {
     // set render DOM node
     init: ({ rootClassName, countClassName }) => {
@@ -47,7 +117,6 @@ const popup = {
     open: () => {
         // set data-visible=true for css [data-visible=true]{display:block;}
         popup.elemRoot.dataset.visible = true
-
     },
 
     // <div class=RENDER_ROOT_POPUP visible=false>
@@ -85,40 +154,10 @@ const popup = {
     }
 
 }
+
+/*
 const state = {
     popup: false,
-    counts: []
+    resetBtn:false
 }
-
-
-
-function init() {
-    // проверить localStorage
-
-    // init PopUp
-    popup.init({
-        rootClassName: RENDER_ROOT_POPUP,
-        countClassName: RENDER_COUNT_POPUP
-    })
-    // загрузить данные в state
-    window.counts = []
-    // example for 3 button (inc)
-    counts.push(count("id1"))
-    counts.push(count("id2"))
-    counts.push(count("id3"))
-}
-
-
-const onClick = (id) => {
-    // item element arr of counts
-    const item = window.counts.find(element => {
-        if (element().name() === id) { console.log('if::', element()); return element }
-    })
-
-    let N = item().inc()
-
-    const monada = popup.property(item())
-    
-    // if count>5 show btn-reset
-    if (N > 5) monada.showResetBtn()
-}
+*/
