@@ -12,20 +12,24 @@
 </head>
 
 <body>
-    <main class="main">
-        <article class="popup" data-visible="false" onclick="popup.close(event)">
-            <div class="alert" role="alert" aria-live="assertive"><button class="alert__btn-close btn btn--brd0" onclick="popup.close(event)">X</button>
+    <div class="modal" data-visible="false" onclick="popup.close(event)" inert>
+        <div class="alert" role="alert" aria-live="polite" aria-atomic="false">
+            <div class="alert__header"><button class="alert__btn-close btn btn--brd0" onclick="popup.close(event)" aria-label="Close" title="Close alert"><span class="alert__sr-text sr-only">Close dialog Alert</span><img class="alert_ico ico_svg" src="images/x-icon.svg" alt="ico close" title="Close alert"></button>
                 <h3 class="alert__title title">Alert!</h3>
-                <p class="alert__mess">You have clicked <b><span class="v-count" aria-value="ss">X</span> times </b>to related button.<span class="alert__wrap-btn-reset wrap-inline"><button class="alert__btn-reset btn" data-visible="false" onclick="popup.resetCount()">reset</button></span></p>
             </div>
-        </article>
+            <div class="alert__body">
+                <p class="alert__mess" labelledby>You have clicked <b><span class="alert__v-count" aria-label="The number of presses by the corresponding button" title="The number of presses by the corresponding button">X</span> times </b>to related button.<span class="alert__wrap-btn-reset wrap-inline"><button class="alert__btn-reset btn" data-visible="false" onclick="popup.resetCount()" aria-label="Reset count click" title="Reset count click">reset</button></span></p>
+            </div>
+        </div>
+    </div>
+    <main class="main">
         <div class="container">
             <article class="news row">
-                <div class="news__hero column"><img class="hero" src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg"></div>
+                <div class="news__hero column"><img class="hero" src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg" alt="Image to text"></div>
                 <div class="news__content column">
                     <h2 class="news__title title">Lorem Ipsum</h2>
                     <p class="news__text text">Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.</p>
-                    <div class="news__wrap-btn wrap-block"><button class="news__btn-add-count btn" onclick="onClick('id2')">Button</button></div>
+                    <div class="news__wrap-btn wrap-block"><button class="news__btn-add-count btn" onclick="onClick('id2',event)" title="Increment counter by 1">Button</button></div>
                 </div>
             </article>
         </div>

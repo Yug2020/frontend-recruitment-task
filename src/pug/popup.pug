@@ -1,14 +1,33 @@
-article.popup(data-visible="false" onclick="popup.close(event)")
-	.alert(role="alert" aria-live="assertive")
-		button.alert__btn-close.btn.btn--brd0(onclick="popup.close(event)")
-			| X
-		h3.alert__title.title Alert!
-		p.alert__mess
-			| You have clicked 
-			b
-				span.v-count(aria-value="ss") X
-				|  times 
-			| to related button.
-			span.alert__wrap-btn-reset.wrap-inline
-				button.alert__btn-reset.btn(data-visible="false" onclick="popup.resetCount()")
-					| reset
+.modal(data-visible="false" onclick="popup.close(event)" inert=true)
+	
+	.alert(role="alert" aria-live="polite" aria-atomic="false")
+		.alert__header
+			button.alert__btn-close.btn.btn--brd0(
+				onclick="popup.close(event)" 
+				aria-label="Close" 
+				title="Close alert"
+			)
+				span.alert__sr-text.sr-only Close dialog Alert
+				img.alert_ico.ico_svg( src="images/x-icon.svg" alt="ico close" title="Close alert")
+			
+			h3.alert__title.title Alert!
+		
+		.alert__body
+			p.alert__mess(labelledby)
+				| You have clicked 
+				b
+					span.alert__v-count(
+						aria-label="The number of presses by the corresponding button"
+						title="The number of presses by the corresponding button" 
+					) X
+					|  times 
+				| to related button.
+				span.alert__wrap-btn-reset.wrap-inline
+					
+					button.alert__btn-reset.btn(
+						data-visible="false" 
+						onclick="popup.resetCount()" 
+						aria-label="Reset count click" 
+						title="Reset count click" 
+					)
+						| reset

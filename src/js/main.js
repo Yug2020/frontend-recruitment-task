@@ -1,10 +1,22 @@
 console.log('It`s work')
 window.onload = init
-const RENDER_ROOT_POPUP = '.popup'
-const RENDER_COUNT_POPUP = '.v-count'
-const RENDER_BTN_RESET_POPUP = '.alert__btn-reset'
+const RENDER_ROOT_MODAL_CLASS = 'modal' // event => close
+const RENDER_MAIN = '.main'// for trigger  .main||.modal inert=true/false
+const RENDER_ROOT_MODAL = '.modal' //popup.init
+const RENDER_COUNT_ALERT = '.alert__v-count'//popup.init
+const RENDER_BTN_RESET_ALERT = '.alert__btn-reset'
 
 const MAX_COUNT = 5
+
+//inert
+const setFocusModal = () => {
+    document.querySelector(RENDER_MAIN).setAttribute("inert", true)
+    document.querySelector(RENDER_ROOT_MODAL).removeAttribute("inert")
+}
+const setFocusMain = () => {
+    document.querySelector(RENDER_ROOT_MODAL).setAttribute("inert", true)
+    document.querySelector(RENDER_MAIN).removeAttribute("inert")
+}
 
 
 function init() {
@@ -13,8 +25,8 @@ function init() {
     // init PopUp
     // set render NODE DOM
     popup.init({
-        rootClassName: RENDER_ROOT_POPUP,
-        countClassName: RENDER_COUNT_POPUP
+        rootClassName: RENDER_ROOT_MODAL,
+        countClassName: RENDER_COUNT_ALERT
     })
     // загрузить данные в state
     window.counts = []
@@ -22,10 +34,15 @@ function init() {
     counts.push(count("id1"))
     counts.push(count("id2"))
     counts.push(count("id3"))
+
+    // set inert
+    setFocusMain()
 }
 
 
-const onClick = (id) => {
+const onClick = (id, e) => {
+    //console.log(e.target)
+    const btnInc = e.target
     // find item element arr of counts
     const item = window.counts.find(element => {
 
@@ -34,15 +51,17 @@ const onClick = (id) => {
 
     // console.log(typeof item)
     //console.log(!!item)
-    console.log(item)
+    //console.log(item)
     if (!!item) {
-        console.log('item=true')
+        // console.log('item=true')
         // getNextCount
         let N = item().inc()
         // getAPI
         const popupAPI = popup.property(item()) // get Property Item <Obj>
         // (check n>5) btnReset=visible
         if (N > MAX_COUNT) popupAPI.showResetBtn()
+        // blur()
+        btnInc.blur()
         // show popup
         popup.open()
         // show count
@@ -74,6 +93,8 @@ function count(_name) {
     // if the value in localstorage exists then apply it
     //if (ls_i !== null && Number.isInteger(ls_i)) { i = ls_i }
     if (bd_i !== null && Number.isInteger(bd_i)) { i = bd_i }
+
+
     // main
     return function () {
         // return API object
@@ -104,7 +125,7 @@ const popup = {
     init: ({ rootClassName, countClassName }) => {
         popup.elemRoot = document.querySelector(rootClassName)
         popup.elemCount = document.querySelector(countClassName)
-        popup.elemBtnReset = document.querySelector(RENDER_BTN_RESET_POPUP)
+        popup.elemBtnReset = document.querySelector(RENDER_BTN_RESET_ALERT)
     },
     property: ({ getValue, reset }) => {
         // addEvent onClick
@@ -117,16 +138,21 @@ const popup = {
     open: () => {
         // set data-visible=true for css [data-visible=true]{display:block;}
         popup.elemRoot.dataset.visible = true
+        // inert
+        setFocusModal()
     },
 
     // <div class=RENDER_ROOT_POPUP visible=false>
     close: (e) => {
         // if click to div class=popup or button class=alert__btn-close then popup.visible=false
-        if (e.target.classList.contains('popup') ||
+        if (e.target.classList.contains(RENDER_ROOT_MODAL_CLASS) ||
+            e.target.classList.contains('alert_ico') ||
             e.target.classList.contains('alert__btn-close')
         ) {
             // this=popup
             popup.elemRoot.dataset.visible = false
+            // inert modal
+            setFocusMain()
         }
 
     },
@@ -134,11 +160,19 @@ const popup = {
     // render i in span class=RENDER_COUNT_POPUP
     renderCount: (val) => {
         popup.elemCount.innerText = val
+
+
     },
 
     // reset
     showResetBtn: () => {
         popup.elemBtnReset.dataset.visible = true
+        // set focus in btnReset
+        // 
+        window.setTimeout(function () {
+            popup.elemBtnReset.focus()
+        }, 0)
+
     },
 
     hideResetBtn: () => {
@@ -146,18 +180,15 @@ const popup = {
     },
 
     resetCount: () => {
-        //_reset()->
-        popup.reset() //{ getValue, reset } = property
-        //popup.renderCount(0)
-        popup.renderCount(popup.getValue()) // from  { getValue, reset } = property
-        popup.hideResetBtn()
-    }
+        // check yes/cancel
+        let isCheckReset = confirm('After clicking the "OK" button, the counter will be reset. Proceed?')
+        if (isCheckReset) {
+            //_reset()->
+            popup.reset() //{ getValue, reset } = property
+            //popup.renderCount(0)
+            popup.renderCount(popup.getValue()) // from  { getValue, reset } = property
+            popup.hideResetBtn()
+        }// if
+    }// resetCount
 
 }
-
-/*
-const state = {
-    popup: false,
-    resetBtn:false
-}
-*/

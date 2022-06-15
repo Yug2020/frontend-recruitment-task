@@ -32,7 +32,7 @@ function server() {
 
 
 function pugTask(){
-	return src(files.pugPath)
+	return src(files.pugPathIndex)
     .pipe(
 		pug({
 			//pretty: true
@@ -52,7 +52,8 @@ const files = {
     scssPath: 'src/scss/**/*.scss',
     sassPath: 'src/sass/**/*.sass',
     jsPath: 'src/js/**/*.js',
-    pugPath: 'index.pug'
+    pugPathIndex: 'index.pug',
+    pugPath: './**/*.pug'
 };
 
 function scssTask(){    

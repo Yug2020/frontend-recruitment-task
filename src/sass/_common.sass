@@ -3,6 +3,7 @@
 	box-sizing: border-box
 
 body,html
+	position: relative
 	height: 100%
 	margin: 0
 	padding: 0
@@ -10,7 +11,7 @@ body,html
 
 // grid
 .main
-	position: relative
+	//position: relative
 	min-height: 100%
 	min-width: $min-width-app
 .section
@@ -27,11 +28,14 @@ body,html
 
 .row
 	display: flex
+	flex-wrap: wrap
 .column
-	flex:1 0 auto
-	display: flex
-	flex-direction: column
-.popup
+	flex:0 1 auto
+	max-width: 50%
+	//flex:1 0 auto
+	//display: flex
+	//flex-direction: column
+.modal
 	background-color: $dark1opacity50
 	position: absolute
 	top: 0
@@ -68,3 +72,16 @@ body,html
 	&--brd0
 		border: 0px solid #000
 		border-radius: 3px
+
+/* WACG*/
+.sr-only
+	position: absolute
+	white-space: nowrap
+	width: 1px
+	height: 1px
+	overflow: hidden
+	border: 0
+	padding: 0
+	clip: rect(0 0 0 0)
+	clip-path: inset(50%)
+	margin: -1px
