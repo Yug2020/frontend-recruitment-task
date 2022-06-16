@@ -3,6 +3,7 @@
 
 <head>
     <!-- Required meta tags-->
+    <meta description="Infinitely scalable, feature-rich and cloud-native data">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> Yurii Holub - Recruitment task</title>
@@ -12,22 +13,30 @@
 </head>
 
 <body>
-    <div class="modal" data-visible="false" onclick="popup.close(event)" inert>
-        <div class="alert" role="alert" aria-live="polite" aria-atomic="false">
-            <div class="alert__header"><button class="alert__btn-close btn btn--brd0" onclick="popup.close(event)" aria-label="Close" title="Close alert"><span class="alert__sr-text sr-only">Close dialog Alert</span><img class="alert_ico ico_svg" src="images/x-icon.svg" alt="ico close" title="Close alert"></button>
-                <h3 class="alert__title title">Alert!</h3>
-            </div>
-            <div class="alert__body">
-                <p class="alert__mess" labelledby>You have clicked <b><span class="alert__v-count" aria-label="The number of presses by the corresponding button" title="The number of presses by the corresponding button">X</span> times </b>to related button.<span class="alert__wrap-btn-reset wrap-inline"><button class="alert__btn-reset btn" data-visible="false" onclick="popup.resetCount()" aria-label="Reset count click" title="Reset count click">reset</button></span></p>
-            </div>
-        </div>
-    </div>
+    <!--block popup-->
     <main class="main">
         <div class="container">
-            <article class="news row">
-                <div class="news__hero column"><img class="hero" src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg" alt="Image to text"></div>
-                <div class="news__content column">
-                    <h2 class="news__title title">Lorem Ipsum</h2>
+            <article class="news">
+                <div class="news__hero-wrap">
+                    <picture>
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_1_1,c_fill,g_auto__c_scale,w_200.jpg" media="(max-aspect-ratio: 1/1) and (max-width: 200px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_1_1,c_fill,g_auto__c_scale,w_450.jpg" media="(max-aspect-ratio: 1/1) and (max-width: 450px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg" media="(max-width: 480px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_4_3,c_fill,g_auto__c_scale,w_538.jpg" media="(min-aspect-ratio: 4/3) and (max-width: 538px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_16_9,c_fill,g_auto__c_scale,w_596.jpg" media="(min-aspect-ratio: 16/9) and (max-width: 596px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_1_1,c_fill,g_auto__c_scale,w_630.jpg" media="(aspect-ratio: 1/1) and (max-width: 630px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_4_3,c_fill,g_auto__c_scale,w_694.jpg" media="(min-aspect-ratio: 4/3) and (max-width: 694px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_16_9,c_fill,g_auto__c_scale,w_720.jpg" media="(min-aspect-ratio: 16/9) and (max-width: 720px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_1_1,c_fill,g_auto__c_scale,w_767.jpg" media="(max-aspect-ratio: 1/1) and (max-width: 767px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_784.jpg" media="(max-width: 784px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1002.jpg" media="(max-width: 1002px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1234.jpg" media="(max-width: 1234px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1394.jpg" media="(max-width: 1394px)">
+                        <source srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_1400.jpg" media="(min-width: 1400px)"><img class="news__hero" src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_1_1,c_fill,g_auto__c_scale,w_200.jpg" alt="Image to text" title="Sunset on a calm sea">
+                    </picture>
+                </div>
+                <div class="news__content">
+                    <h2 class="news__title title">Lorem Ipsum2</h2>
                     <p class="news__text text">Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.</p>
                     <div class="news__wrap-btn wrap-block"><button class="news__btn-add-count btn" onclick="onClick('id2',event)" title="Increment counter by 1">Button</button></div>
                 </div>

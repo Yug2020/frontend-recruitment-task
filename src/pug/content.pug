@@ -1,12 +1,32 @@
+- var path='images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_'
+mixin pictureHero()
+	picture
+		source(srcset=path+"ar_1_1,c_fill,g_auto__c_scale,w_200.jpg" media="(max-aspect-ratio: 1/1) and (max-width: 200px)")
+		source(srcset=path+"ar_1_1,c_fill,g_auto__c_scale,w_450.jpg" media="(max-aspect-ratio: 1/1) and (max-width: 450px)")
+		source(srcset=path+"c_scale,w_480.jpg"  media="(max-width: 480px)")
+		source(srcset=path+"ar_4_3,c_fill,g_auto__c_scale,w_538.jpg" media="(min-aspect-ratio: 4/3) and (max-width: 538px)")
+		source(srcset=path+"ar_16_9,c_fill,g_auto__c_scale,w_596.jpg" media="(min-aspect-ratio: 16/9) and (max-width: 596px)")
+		source(srcset=path+"ar_1_1,c_fill,g_auto__c_scale,w_630.jpg" media="(aspect-ratio: 1/1) and (max-width: 630px)")
+		source(srcset=path+"ar_4_3,c_fill,g_auto__c_scale,w_694.jpg" media="(min-aspect-ratio: 4/3) and (max-width: 694px)")
+		source(srcset=path+"ar_16_9,c_fill,g_auto__c_scale,w_720.jpg" media="(min-aspect-ratio: 16/9) and (max-width: 720px)")
+		source(srcset=path+"ar_1_1,c_fill,g_auto__c_scale,w_767.jpg" media="(max-aspect-ratio: 1/1) and (max-width: 767px)")
+		source(srcset=path+"c_scale,w_784.jpg"  media="(max-width: 784px)")
+		source(srcset=path+"c_scale,w_1002.jpg" media="(max-width: 1002px)")
+		source(srcset=path+"c_scale,w_1234.jpg" media="(max-width: 1234px)")
+		source(srcset=path+"c_scale,w_1394.jpg" media="(max-width: 1394px)")
+		source(srcset=path+"c_scale,w_1400.jpg" media="(min-width: 1400px)")
+		img.news__hero(
+		src=path+"ar_1_1,c_fill,g_auto__c_scale,w_200.jpg"
+		alt="Image to text"
+		title="Sunset on a calm sea"
+		)
+
 .container
-	article.news.row
-		.news__hero.column
-			img.hero(
-				src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale,w_480.jpg"
-				alt="Image to text"
-				)
-		.news__content.column
-			h2.news__title.title Lorem Ipsum
+	article.news
+		.news__hero-wrap
+			+pictureHero()
+		.news__content
+			h2.news__title.title Lorem Ipsum2
 			p.news__text.text Infinitely scalable, feature-rich and cloud-native data management and protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.
 			.news__wrap-btn.wrap-block
 				button.news__btn-add-count.btn(
