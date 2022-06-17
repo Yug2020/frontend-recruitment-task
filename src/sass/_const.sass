@@ -20,22 +20,26 @@ $context-padding-mobile:15px
 $context-padding-tablet:30px
 $context-padding-desktop:0px
 
+// var 
+$k-desktop:1.1
+$k-mobile:1.2
+
 // text
 //font-size
 $text-font-size-desktop: 16px
-$text-font-size-tablet: $text-font-size-desktop*1
-$text-font-size-mobile: $text-font-size-desktop*1
+$text-font-size-tablet: $text-font-size-desktop*$k-desktop
+$text-font-size-mobile: $text-font-size-desktop*$k-mobile
 
 $text-line-height-tablet:24px
-$text-line-height-tablet:$text-line-height-tablet*1
-$text-line-height-mobile:$text-line-height-tablet*1
+$text-line-height-tablet:$text-line-height-tablet*$k-desktop
+$text-line-height-mobile:$text-line-height-tablet*$k-mobile
 
 
 // title
 $title-font-size-desktop:42px
-$title-font-size-tablet:$title-font-size-desktop*1
-$title-font-size-mobile:$title-font-size-desktop*0.9
+$title-font-size-tablet:$title-font-size-desktop*$k-desktop
+$title-font-size-mobile:$title-font-size-desktop*$k-mobile
 
 $title-line-height-desktop:50.4px
-$title-line-height-tablet:$title-line-height-desktop*1
-$title-line-height-mobile:$title-line-height-desktop*1
+$title-line-height-tablet:$title-line-height-desktop*$k-desktop
+$title-line-height-mobile:$title-line-height-desktop*$k-mobile

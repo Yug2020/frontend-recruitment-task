@@ -8,15 +8,17 @@ body,html
 	margin: 0
 	padding: 0
 	font-family: 'Roboto', sans-serif
-
+	
 // grid
 .main
-	max-width:100vw
-	//debug
-	//display: none
-	//position: relative
-	//min-height: 100%
-	//min-width: $min-width-app
+	max-width: 100vw
+	background-color: gray
+	@include for-tablet-portrait
+		background-color: red
+	@include for-desktop
+		background-color: blue
+		margin-top: 96px
+
 .section
 	display: flex
 .container
@@ -113,7 +115,7 @@ body,html
 
 [data-tooltip]:focus::after
 	opacity: 1//* Показываем подсказку */
-	top: 2em//* Положение подсказки */
+	top: 2em//* Положение подсказки  */
 
 // 17.06.2022
 .img

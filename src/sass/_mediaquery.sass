@@ -1,0 +1,35 @@
+// break point
+
+$bp-tablet-portrait: 600px
+$bp-tablet-landscape: 900px
+$bp-desktop: 1200px
+$bp-big-desktop: 1800px
+// media query
+
+@mixin for-tablet-portrait()
+	@media (min-width: $bp-tablet-portrait)
+		@content
+
+@mixin for-tablet-landscape()
+	@media (min-width: $bp-tablet-landscape)
+		@content
+
+@mixin for-desktop()
+	@media (min-width: $bp-desktop)
+		@content
+
+@mixin for-big-desktop()
+	@media (min-width: $bp-big-desktop)
+		@content
+
+/*
+	.header-title
+		font-size: 2rem
+		@include for-phone-only
+			font-size: 1rem 
+		@include for-tablet-portrait
+		@include for-tablet-landscape
+		@include for-desktop
+		@include for-big-desktop
+
+			*/
