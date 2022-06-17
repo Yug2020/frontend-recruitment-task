@@ -5,22 +5,24 @@
 body,html
 	height: 100%
 	width:100%
-	margin: 0
 	padding: 0
+	margin: 0
 	font-family: 'Roboto', sans-serif
-	
-// grid
-.main
-	max-width: 100vw
+body
+	@extend .main-text
 	background-color: gray
-	@include for-tablet-portrait
+	padding-top: 0
+	@include for-tablet-landscape
+		padding-top: 48px
 		background-color: red
 	@include for-desktop
 		background-color: blue
-		margin-top: 96px
-
-.section
+		padding-top: 96px
+// grid
+.main
+	max-width: 100vw
 	display: flex
+
 .container
 	max-width: $max-width-container
 	margin: auto
@@ -62,6 +64,7 @@ body,html
 	//*text-align: center//**/
 
 .btn
+	@extend .main-text
 	background: transparent 
 	cursor: pointer
 	outline: 0px solid $onFocus //* Параметры рамки */
@@ -90,7 +93,7 @@ body,html
 	padding: 0
 	clip: rect(0 0 0 0)
 	clip-path: inset(50%)
-	margin: -1px
+	padding: -1px
 
 // js class add
 .scroll-hidden

@@ -1,15 +1,20 @@
 .news
+	display: block
+	@extend .container
 	//* .news__hero */
+	@include for-tablet-portrait
+		display: flex
+	//@include for-tablet-landscape
+		display: flex
 	&__hero-wrap
-	// display: flex
 	&__hero
 		@extend .img
-		//object-fit: contain
+		object-fit: contain
 	/* .news__content */
 	&__content
 		padding:0 $context-padding-mobile
 		padding-bottom: 30px
-	/* .news__title */
+		/* .news__title */
 	&__title
 		@extend .title
 	/* .news__text */

@@ -1,0 +1,11 @@
+// depends on -> _mediaquery.sass
+//------------
+.main-text
+	font-size: $text-font-size-mobile
+	line-height: $text-line-height-mobile
+	@include for-tablet-landscape
+		font-size: $text-font-size-tablet
+		line-height: $text-line-height-tablet
+	@include for-desktop
+		font-size: $text-font-size-desktop
+		line-height: $text-line-height-desktop
