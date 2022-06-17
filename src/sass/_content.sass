@@ -5,22 +5,43 @@
 	@include for-tablet-portrait
 		display: flex
 	//@include for-tablet-landscape
-		display: flex
+
 	&__hero-wrap
+		@extend .item
+		
+		max-height: 330px
+		flex-shrink: 1
+		flex-grow: 1
+		overflow: hidden
+		@include for-tablet-portrait
+			max-width: 505px
+		@include for-tablet-landscape
+			flex-shrink: 0
 	&__hero
 		@extend .img
-		object-fit: contain
+		//object-fit: contain
 	/* .news__content */
 	&__content
+		@extend .item
 		padding:0 $context-padding-mobile
 		padding-bottom: 30px
-		/* .news__title */
+		flex-grow: 0
+		@include for-tablet-landscape
+			padding-left: 48px
+			padding-bottom: 0px
+		@include for-desktop
+			padding-left: 95px
+			padding-bottom: 0px
+	/* .news__title */
 	&__title
 		@extend .title
+		//line-height: 0
+		margin-bottom: 24px
 	/* .news__text */
 	&__text
+		margin-bottom: 32px
 	/* .news__wrap-btn */
-	&__wrap-btn
+	//+&__wrap-btn
 	/* .news__btn-add-count */
 	&__btn-add-count
 		@extend .btn
@@ -29,5 +50,7 @@
 		background: $main1 //_const.sass
 		border-radius: 32px
 		color: $main2
-		font-size: $text-font-size-mobile
+		//font-size: $text-font-size-mobile
+		font-size: 16px
 		line-height: 16px
+		font-weight: 700

@@ -8,10 +8,14 @@ body,html
 	padding: 0
 	margin: 0
 	font-family: 'Roboto', sans-serif
+
 body
 	@extend .main-text
+
 	background-color: gray
 	padding-top: 0
+	
+
 	@include for-tablet-landscape
 		padding-top: 48px
 		background-color: red
@@ -33,12 +37,12 @@ body
 .wrap-inline
 	display: inline
 
-.row
+.row_
 	display: flex
 	flex-wrap: wrap
-.column
-	flex:0 1 auto
-	max-width: 50%
+.item
+	//align-self: center
+	//flex:0 0 50%
 	//flex:1 0 auto
 	//display: flex
 	//flex-direction: column
@@ -59,8 +63,8 @@ body
 // common component
 .title
 	color: $dark1
-	font-size:42px
 	font-weight: 700
+	@extend .h2-title
 	//*text-align: center//**/
 
 .btn
@@ -123,4 +127,5 @@ body
 // 17.06.2022
 .img
 	width: 100%
-	height: auto
+	height: 100%
+	object-fit: cover
