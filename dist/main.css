@@ -58,18 +58,15 @@ body, html {
 }
 
 body {
-  background-color: gray;
   padding-top: 0;
 }
 @media (min-width: 900px) {
   body {
     padding-top: 48px;
-    background-color: red;
   }
 }
 @media (min-width: 1200px) {
   body {
-    background-color: blue;
     padding-top: 96px;
   }
 }
@@ -149,7 +146,7 @@ body {
   padding: -1px;
 }
 
-.scroll-hidden {
+.no-scroll {
   overflow: hidden;
 }
 

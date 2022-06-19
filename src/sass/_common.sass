@@ -12,15 +12,15 @@ body,html
 body
 	@extend .main-text
 
-	background-color: gray
+	//-background-color: gray
 	padding-top: 0
 	
 
 	@include for-tablet-landscape
 		padding-top: 48px
-		background-color: red
+		//-background-color: red
 	@include for-desktop
-		background-color: blue
+		//-background-color: blue
 		padding-top: 96px
 // grid
 .main
@@ -95,7 +95,7 @@ body
 	padding: -1px
 
 // js class add
-.scroll-hidden
+.no-scroll
 	overflow: hidden
 
 // 17.06.2022
