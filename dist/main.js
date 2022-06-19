@@ -20,7 +20,7 @@ const CLASS_NAME_BODY_SCROLL = 'no-scroll'
 const MAX_COUNT = 5
 
 function init() {
-    // проверить localStorage
+    // check localStorage
 
     // init PopUp
     // set render NODE DOM
@@ -28,11 +28,11 @@ function init() {
         rootClassName: RENDER_ROOT_MODAL,
         countClassName: RENDER_COUNT_ALERT
     })
-    // загрузить данные в state
+    // load data to state
     window.counts = []
     // example for 3 button (inc)
     counts.push(count("id1"))// demo
-    counts.push(count("id2"))// demo
+    counts.push(count("id2"))// work
     counts.push(count("id3"))// demo
 
     // set inert
