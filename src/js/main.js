@@ -1,10 +1,15 @@
 console.log('It`s work')
 window.onload = init
-const RENDER_ROOT_MODAL_CLASS = 'modal' // event => close
+// The class is needed to fire the event on the button
+const ON_CLOSE_ROOT_MODAL_CLASS = 'modal' // event => close
+const ON_CLOSE_ICO_MODAL_CLASS = 'alert__ico' // event => close
+const ON_CLOSE_BTN_CLOSE_MODAL_CLASS = 'alert__btn-close' // event => close
+
 const RENDER_MAIN = '.main'// for trigger  .main||.modal inert=true/false
 const RENDER_ROOT_MODAL = '.modal' //popup.init
 const RENDER_COUNT_ALERT = '.alert__v-count'//popup.init
-const RENDER_BTN_RESET_ALERT = '.alert__btn-reset'
+const BTN_RESET_ALERT = '.alert__btn-reset'//popup.init
+
 
 const MAX_COUNT = 5
 
@@ -125,7 +130,7 @@ const popup = {
     init: ({ rootClassName, countClassName }) => {
         popup.elemRoot = document.querySelector(rootClassName)
         popup.elemCount = document.querySelector(countClassName)
-        popup.elemBtnReset = document.querySelector(RENDER_BTN_RESET_ALERT)
+        popup.elemBtnReset = document.querySelector(BTN_RESET_ALERT)
     },
     property: ({ getValue, reset }) => {
         // addEvent onClick
@@ -141,13 +146,14 @@ const popup = {
         // inert
         setFocusModal()
     },
-
+ 
     // <div class=RENDER_ROOT_POPUP visible=false>
     close: (e) => {
+       
         // if click to div class=popup or button class=alert__btn-close then popup.visible=false
-        if (e.target.classList.contains(RENDER_ROOT_MODAL_CLASS) ||
-            e.target.classList.contains('alert_ico') ||
-            e.target.classList.contains('alert__btn-close')
+        if (e.target.classList.contains(ON_CLOSE_ROOT_MODAL_CLASS) ||
+            e.target.classList.contains(ON_CLOSE_ICO_MODAL_CLASS) ||
+            e.target.classList.contains(ON_CLOSE_BTN_CLOSE_MODAL_CLASS)
         ) {
             // this=popup
             popup.elemRoot.dataset.visible = false

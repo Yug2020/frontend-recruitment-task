@@ -1,30 +1,50 @@
 .alert
-	position: relative
+	//position: relative
 	background: $bg-alert
 	width: 100%
 	/*height: 100%/**/
 	max-width: $max-width-alert
-	max-height: $max-height-alert
+	//max-height: $max-height-alert
 	/*min-width: 363px/**/
 	/*min-height: 210px/**/
 	margin: auto
 
-	padding-left: $context-padding-mobile
+	padding: 56px 46px 56px 95px
 
 	&__header
+	
+	/* .alert__wrap-btn */
+	&__wrap-btn
+		display: flex
+		height: 0
+	
 	/* .alert__btn-close */
 	&__btn-close
-		position: absolute
-		top: 26px
-		right: 26px /*46px*/
-	/* .alert__sr-text */
-	&__sr-text
+		margin-left: auto
+		margin-right: -2px
+		margin-top: -12px
+		display: flex
+		padding: 0 !important
+		width: 18px
+		height: 18px
+
+	/* .alert__ico*/
+	&__ico
+		line-height: 0 !important
+		width: 100%
+		height: auto
 	/* .alert__title */
 	&__title
+		@extend .title
+		//height: 50px
+		margin: 0
+		margin-bottom: 24px
+		//line-height: 0
 	/* .alert__body */
 	&__body
 	/* .alert__mess */
 	&__mess
+		margin: 0
 	/* .alert__v-count */
 	&__v-count
 	/* .alert__wrap-btn-reset */

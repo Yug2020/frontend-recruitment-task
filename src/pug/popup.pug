@@ -2,19 +2,19 @@
 	
 	.alert(role="alert" aria-live="polite" aria-atomic="false")
 		.alert__header
-			button.alert__btn-close.btn.btn--brd0(
-				onclick="popup.close(event)" 
-				aria-label="Close" 
-				title="Close alert"
-				data-tooltip="Close" 
-			)
-				span.alert__sr-text.sr-only Close dialog Alert
-				img.alert_ico.ico_svg( src="images/x-icon.svg" alt="ico close" title="Close alert")
-			
+			.alert__wrap-btn
+				button.alert__btn-close.btn.btn--brd0(
+					onclick="popup.close(event)" 
+					aria-label="Close" 
+					title="Close alert"
+				)
+					span.alert__sr-text.sr-only Close dialog Alert
+					img.alert__ico.ico_svg( src="images/x-icon.svg" alt="ico close" title="Close alert")
 			h3.alert__title.title Alert!
+			
 		
 		.alert__body
-			p.alert__mess(labelledby)
+			p.alert__mess
 				| You have clicked 
 				b
 					span.alert__v-count(
@@ -30,6 +30,5 @@
 						onclick="popup.resetCount()" 
 						aria-label="Reset count click" 
 						title="Reset count click"
-						data-tooltip="Reset count click" 
 					)
 						| reset

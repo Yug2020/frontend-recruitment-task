@@ -7,7 +7,7 @@ body,html
 	width:100%
 	padding: 0
 	margin: 0
-	font-family: 'Roboto', sans-serif
+	font-family: $font-family
 
 body
 	@extend .main-text
@@ -40,12 +40,7 @@ body
 .row_
 	display: flex
 	flex-wrap: wrap
-.item
-	//align-self: center
-	//flex:0 0 50%
-	//flex:1 0 auto
-	//display: flex
-	//flex-direction: column
+
 .modal
 	max-width: 100%
 	background-color: $dark1opacity50
@@ -102,27 +97,6 @@ body
 // js class add
 .scroll-hidden
 	overflow: hidden
-
-[data-tooltip]
-	//position: relative ///* Относительное позиционирование */ 
-
-[data-tooltip]::after
-	content: attr(data-tooltip) //* Выводим текст */
-	position: absolute //* Абсолютное позиционирование */
-	width: 100px //* Ширина подсказки */
-	left: 0
-	top: 0 //* Положение подсказки */
-	background: #3989c9//* Синий цвет фона */
-	color: #fff//* Цвет текста */
-	padding: 0.5em//* Поля вокруг текста */
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3)//* Параметры тени */
-	pointer-events: none//* Подсказка */
-	opacity: 0//* Подсказка невидима */
-	transition: 1s//* Время появления подсказки */ 
-
-[data-tooltip]:focus::after
-	opacity: 1//* Показываем подсказку */
-	top: 2em//* Положение подсказки  */
 
 // 17.06.2022
 .img

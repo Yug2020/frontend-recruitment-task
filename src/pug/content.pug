@@ -17,8 +17,7 @@ mixin pictureHero()
 		source(srcset=path+"c_scale,w_1400.jpg" media="(min-width: 1400px)")
 		img.news__hero(
 		src=path+"ar_1_1,c_fill,g_auto__c_scale,w_200.jpg"
-		alt="Image to text"
-		title="Sunset on a calm sea"
+		alt="Image sunset on a calm sea"
 		)
 
 .container
@@ -31,5 +30,7 @@ mixin pictureHero()
 			.news__wrap-btn.wrap-block
 				button.news__btn-add-count(
 					onclick="onClick('id2',event)"
-					title="Increment counter by 1") Button
+					title="Increment counter by 1"
+					aria-label="Increment counter by 1"
+					) Button
 
