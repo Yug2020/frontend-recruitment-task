@@ -9,20 +9,20 @@
  * @include for-big-desktop
  *
  * */
-.main-text, .btn, .news__btn-add-count, body {
+.main-text, .btn, .news__btn-add-count, .alert__btn-reset, .alert__btn-close, body {
   font-size: 14.4px;
   line-height: 21.6px;
   letter-spacing: -0.3px;
   word-spacing: 0.3px;
 }
 @media (min-width: 900px) {
-  .main-text, .btn, .news__btn-add-count, body {
+  .main-text, .btn, .news__btn-add-count, .alert__btn-reset, .alert__btn-close, body {
     font-size: 14.4px;
     line-height: 21.6px;
   }
 }
 @media (min-width: 1200px) {
-  .main-text, .btn, .news__btn-add-count, body {
+  .main-text, .btn, .news__btn-add-count, .alert__btn-reset, .alert__btn-close, body {
     font-size: 16px;
     line-height: 24px;
   }
@@ -81,11 +81,11 @@ body {
   margin: auto;
 }
 
-.wrap-block {
+.wrap-block, .news__wrap-btn {
   display: block;
 }
 
-.wrap-inline {
+.wrap-inline, .alert__wrap-btn-reset {
   display: inline;
 }
 
@@ -114,21 +114,21 @@ body {
   font-weight: 700;
 }
 
-.btn, .news__btn-add-count {
+.btn, .news__btn-add-count, .alert__btn-reset, .alert__btn-close {
   background: transparent;
   cursor: pointer;
   outline: 0px solid #5569fa;
   transition: all 0.45s ease-in-out;
 }
-.btn:hover, .news__btn-add-count:hover {
+.btn:hover, .news__btn-add-count:hover, .alert__btn-reset:hover, .alert__btn-close:hover {
   color: red;
   outline: 3px solid #5569fa;
 }
-.btn:focus, .news__btn-add-count:focus {
+.btn:focus, .news__btn-add-count:focus, .alert__btn-reset:focus, .alert__btn-close:focus {
   outline: 3px solid #5569fa;
   transition: all 0.15s ease-in-out;
 }
-.btn--brd0 {
+.btn--brd0, .alert__btn-close {
   border: 0px solid #000;
   border-radius: 3px;
 }

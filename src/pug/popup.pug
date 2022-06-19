@@ -3,14 +3,14 @@
 	.alert(role="alert" aria-live="polite" aria-atomic="false")
 		.alert__header
 			.alert__wrap-btn
-				button.alert__btn-close.btn.btn--brd0(
+				button.alert__btn-close(
 					onclick="popup.close(event)" 
 					aria-label="Close" 
 					title="Close alert"
 				)
 					span.alert__sr-text.sr-only Close dialog Alert
-					img.alert__ico.ico_svg( src="images/x-icon.svg" alt="ico close" title="Close alert")
-			h3.alert__title.title Alert!
+					img.alert__ico( src="images/x-icon.svg" alt="ico close" title="Close alert")
+			h3.alert__title Alert!
 			
 		
 		.alert__body
@@ -23,9 +23,8 @@
 					) X
 					|  times 
 				| to related button.
-				span.alert__wrap-btn-reset.wrap-inline
-					
-					button.alert__btn-reset.btn(
+				span.alert__wrap-btn-reset
+					button.alert__btn-reset(
 						data-visible="false" 
 						onclick="popup.resetCount()" 
 						aria-label="Reset count click" 
